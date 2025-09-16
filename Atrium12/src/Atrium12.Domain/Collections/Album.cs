@@ -12,7 +12,7 @@ namespace Atrium12.Domain.Collections
         [MaxLength(255)]
         public string Name { get; set; } = string.Empty; // "Morgan Dollar 1878-1921"
 
-        [MaxLength(1000)]
+        [MaxLength(8000)]
         public string? Description { get; set; }
 
         [MaxLength(100)]

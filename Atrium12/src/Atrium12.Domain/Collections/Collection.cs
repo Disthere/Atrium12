@@ -13,17 +13,17 @@ namespace Atrium12.Domain.Collections
         public Guid Id { get; set; }
 
         [Required]
-        public Guid UserId { get; set; }
+        public required Guid UserId { get; set; }
 
         [Required]
-        [MaxLength(255)]
-        public string Name { get; set; } = string.Empty;
+        [MaxLength(512)]
+        public required string Name { get; set; }
 
         [MaxLength(8000)]
         public string? Description { get; set; }
 
         [Required]
-        public DateTime CreatedAt { get; set; }
+        public required DateTime CreatedAt { get; set; }
 
         [Required]
         public DateTime UpdatedAt { get; set; }
@@ -31,13 +31,11 @@ namespace Atrium12.Domain.Collections
         public bool IsPublic { get; set; } = false;
 
         [Required]
-        [MaxLength(50)]
-        public string Type { get; set; } = "Custom"; // 'Coins', 'Stamps', 'Banknotes', 'Custom'
+        public required Guid ItemType { get; set; }  // 'Coin', 'Banknote', 'Stamp'
 
         public Guid? CoverImageId { get; set; }
 
         // Navigation properties
-        public virtual User? User { get; set; }
         public virtual Media? CoverImage { get; set; }
         public virtual ICollection<CollectionAlbum> CollectionAlbums { get; set; } = new List<CollectionAlbum>();
         public virtual ICollection<Item> Items { get; set; } = new List<Item>();
