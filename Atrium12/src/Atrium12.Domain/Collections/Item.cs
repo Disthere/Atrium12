@@ -11,22 +11,22 @@ namespace Atrium12.Domain.Collections
         public Guid Id { get; set; }
 
         [Required]
-        public Guid CollectionId { get; set; }
+        public required Guid CollectionId { get; set; }
 
         [Required]
-        public Guid ItemType { get; set; }  // 'Coin', 'Banknote', 'Stamp'
+        public required Guid ItemType { get; set; }  // 'Coin', 'Banknote', 'Stamp'
         public Guid ConditionId { get; set; }
         public Guid FinanceId { get; set; }
 
         [Required]
         [MaxLength(255)]
-        public string Name { get; set; } = string.Empty;
+        public required string Name { get; set; } 
 
         [MaxLength(8000)]
         public string? Description { get; set; }
          
         [Required]
-        public DateTime CreatedAt { get; set; }
+        public required DateTime CreatedAt { get; set; }
 
         [Required]
         public DateTime UpdatedAt { get; set; }
@@ -37,8 +37,8 @@ namespace Atrium12.Domain.Collections
         
 
         // Navigation
-        public virtual Collection Collection { get; set; } = null!;
-        public virtual ICollection<Media> Media { get; set; } = new List<Media>();
+        public virtual Collection? Collection { get; set; }
+        public virtual ICollection<Media> Media { get; set; } = [];
         public virtual ItemExternalReference? ExternalReference { get; set; }
 
     }
