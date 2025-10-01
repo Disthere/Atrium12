@@ -7,15 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Notifications\" />
-    <Folder Include="AIRecognitions\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Atrium12.Application\Atrium12.Application.csproj" />
+    <ProjectReference Include="..\..\Atrium12.Contracts\Atrium12.Contracts.csproj" />
+    <ProjectReference Include="..\Atrium12.Domain\Atrium12.Domain.csproj" />
   </ItemGroup>
 
 </Project>
