@@ -2,7 +2,7 @@
 
 namespace Atrium12.Domain.Collections
 {
-    public class CollectionType
+    public class ItemType
     {
         public Guid Id { get; set; }
 
@@ -21,6 +21,6 @@ namespace Atrium12.Domain.Collections
         public bool IsSystem { get; set; } = false;
 
         // Navigation
-        public virtual ICollection<Collection> Collections { get; set; } = new List<Collection>();
+        public virtual ICollection<Item> Items { get; set; } = new List<Item>();
     }
 }

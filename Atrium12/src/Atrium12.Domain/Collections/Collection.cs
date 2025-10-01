@@ -16,6 +16,9 @@ namespace Atrium12.Domain.Collections
         public required Guid UserId { get; set; }
 
         [Required]
+        public required Guid CollectionTypeId { get; set; } // 'Частная', 'Открытая',
+
+        [Required]
         [MaxLength(512)]
         public required string Name { get; set; }
 
@@ -31,13 +34,13 @@ namespace Atrium12.Domain.Collections
         public bool IsPublic { get; set; } = false;
 
         [Required]
-        public required Guid ItemType { get; set; }  // 'Coin', 'Banknote', 'Stamp'
-
         public Guid? CoverImageId { get; set; }
 
         // Navigation properties
         public virtual Media? CoverImage { get; set; }
-        public virtual ICollection<CollectionAlbum> CollectionAlbums { get; set; } = new List<CollectionAlbum>();
+
+         //public virtual ICollection<CollectionAlbum> CollectionAlbums { get; set; } = new List<CollectionAlbum>();
+
         public virtual ICollection<Item> Items { get; set; } = new List<Item>();
     }
 }
