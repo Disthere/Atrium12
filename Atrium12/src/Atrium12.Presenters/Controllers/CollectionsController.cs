@@ -16,7 +16,9 @@ namespace Atrium12.Presenters.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CollectionDto>>> GetAll() =>
+        public async Task<ActionResult<IEnumerable<CollectionDto>>> GetAll(
+            [FromQuery] GetCollectionsDto request,
+            CancellationToken cancellationToken) =>
             Ok(await _collectionService.GetAllAsync());
 
 
