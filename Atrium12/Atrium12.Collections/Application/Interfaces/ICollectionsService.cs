@@ -1,12 +1,10 @@
-﻿
+﻿using Atrium12.Collections.Contracts.DTOs;
 
-using Atrium12.Contracts.DTOs;
-
-namespace Atrium12.Application
+namespace Atrium12.Collections.Application.Interfaces
 {
-    public interface IItemService
+    public interface ICollectionsService
     {
-        Task<ItemDto> CreateAsync(CreateItemDto dto);
+        Task<CollectionDto> CreateAsync(CreateCollectionDto dto);
 
         Task<bool> DeleteAsync(Guid id);
 
@@ -26,10 +24,10 @@ namespace Atrium12.Application
         /// <param name="cancellationToken">Токен отметы.</param>
         /// <returns>Результат работы метода - либо ID созданного ответа, либо список ошибок.</returns>
         //Task<Result<Guid, Failure>> AddAnswer(Guid questionId, AddAnswerDto addAnswerDto, CancellationToken cancellationToken);
-        Task<IEnumerable<ItemDto>> GetAllAsync();
+        Task<IEnumerable<CollectionDto>> GetAllAsync();
 
-        Task<ItemDto> GetByIdAsync(Guid itemId);
+        Task<CollectionDto> GetByIdAsync(Guid collectionId);
 
-        Task<ItemDto> UpdateAsync(Guid ItemId, UpdateItemDto dto);
+        Task<CollectionDto> UpdateAsync(Guid collectionId, UpdateCollectionDto dto);
     }
 }

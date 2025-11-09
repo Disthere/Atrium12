@@ -1,14 +1,14 @@
 ﻿namespace Atrium12.Contracts.DTOs
 {
     public record CollectionDto(
-    Guid Id,
-    Guid UserId,
-    Guid CollectionTypeId,
+    System.Guid Id,
+    System.Guid UserId,
+    System.Guid CollectionTypeId,
     string Name,
     string? Description,
     DateTime CreatedAt,
     DateTime UpdatedAt,
     bool IsPublic,
-    Guid? CoverImageId
+    System.Guid? CoverImageId
 );
 }

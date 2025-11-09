@@ -1,32 +1,53 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Linq;
 
 namespace Atrium12.Domain.Collections
 {
     public class Item
     {
+        public Item(
+            Guid id,
+            Guid collectionId,
+            Guid itemTypeId,
+            string name,
+            string? description,
+            Guid? conditionId,
+            Guid? financeId,
+            string? metadata)
+        {
+            Id = id;
+            CollectionId = collectionId;
+            ItemTypeId = itemTypeId;
+            Name = name;
+            Description = description;
+            ConditionId = conditionId;
+            FinanceId = financeId;
+            Metadata = metadata;
+        }
+
         [Key]
         public Guid Id { get; set; }
 
         [Required]
-        public required Guid CollectionId { get; set; }
+        public Guid CollectionId { get; set; }
 
         [Required]
-        public required Guid ItemTypeId { get; set; } // 'Coin', 'Banknote', 'Stamp'
+        public Guid ItemTypeId { get; set; } // 'Coin', 'Banknote', 'Stamp'
 
         [Required]
         [MaxLength(255)]
-        public required string Name { get; set; }
+        public string Name { get; set; }
 
         [MaxLength(8000)]
         public string? Description { get; set; }
 
-        public Guid ConditionId { get; set; }
+        public Guid? ConditionId { get; set; }
 
-        public Guid FinanceId { get; set; }
+        public Guid? FinanceId { get; set; }
 
         [Required]
-        public required DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         [Required]
         public DateTime UpdatedAt { get; set; }

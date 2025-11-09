@@ -1,12 +1,7 @@
-﻿
-
-namespace Atrium12.Application
+﻿namespace Atrium12.Collections.Application.Interfaces
 {
-
-    public interface IAlbumService
+    public interface IExternalSourcesService
     {
-        Task CreateAsync(Atrium12.Contracts.DTOs.CreateAlbumDto dto);
-
         /// <summary>
         /// Создание вопроса.
         /// </summary>
@@ -23,7 +18,5 @@ namespace Atrium12.Application
         /// <param name="cancellationToken">Токен отметы.</param>
         /// <returns>Результат работы метода - либо ID созданного ответа, либо список ошибок.</returns>
         //Task<Result<Guid, Failure>> AddAnswer(Guid questionId, AddAnswerDto addAnswerDto, CancellationToken cancellationToken);
-        Task<object> GetAllAsync();
-        Task GetByIdAsync(Guid id);
     }
 }

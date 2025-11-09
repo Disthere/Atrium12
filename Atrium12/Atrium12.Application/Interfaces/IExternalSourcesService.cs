@@ -1,6 +1,6 @@
-﻿namespace Atrium12.Application
+﻿namespace Atrium12.Application.Interfaces
 {
-    public interface IExternalSourceService
+    public interface IExternalSourcesService
     {
         /// <summary>
         /// Создание вопроса.
