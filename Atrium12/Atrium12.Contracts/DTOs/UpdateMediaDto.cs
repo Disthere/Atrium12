@@ -1,7 +1,7 @@
 ﻿namespace Atrium12.Contracts.DTOs
 {
     public record AlbumDto(
-    Guid Id,
+    System.Guid Id,
     string Name,
     string? Description,
     string? SourceName,
@@ -9,7 +9,7 @@
     string? Metadata,
     DateTime CreatedAt,
     bool IsOfficial,
-    Guid? CreatedByUserId
+    System.Guid? CreatedByUserId
 );
 
     public record CreateAlbumDto(

@@ -1,13 +1,13 @@
 ﻿namespace Atrium12.Contracts.DTOs
 {
     public record ItemDto(
-    Guid Id,
-    Guid CollectionId,
-    Guid ItemTypeId,
+    System.Guid Id,
+    System.Guid CollectionId,
+    System.Guid ItemTypeId,
     string Name,
     string? Description,
-    Guid? ConditionId,
-    Guid? FinanceId,
+    System.Guid? ConditionId,
+    System.Guid? FinanceId,
     DateTime CreatedAt,
     DateTime UpdatedAt,
     string? Metadata

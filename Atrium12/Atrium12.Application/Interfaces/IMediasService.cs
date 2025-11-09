@@ -1,6 +1,6 @@
-﻿namespace Atrium12.Application
+﻿namespace Atrium12.Application.Interfaces
 {
-    public interface IMediaService
+    public interface IMediasService
     {
         /// <summary>
         /// Создание вопроса.

@@ -1,4 +1,4 @@
-﻿using Atrium12.Application;
+﻿using Atrium12.Application.Interfaces;
 using Atrium12.Contracts.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,9 +8,9 @@ namespace Atrium12.Presenters.Controllers
     [Route("api/v1/items")]
     public class ItemsController : ControllerBase
     {
-        private readonly IItemService _itemService;
+        private readonly IItemsService _itemService;
 
-        public ItemsController(IItemService itemService)
+        public ItemsController(IItemsService itemService)
         {
             _itemService = itemService;
         }
@@ -25,7 +25,7 @@ namespace Atrium12.Presenters.Controllers
 
         [HttpGet("{itemId:guid}")]
         public async Task<ActionResult<ItemDto>> GetById(
-            [FromRoute] Guid itemId,
+            [FromRoute] System.Guid itemId,
             CancellationToken cancellationToken)
         {
             var item = await _itemService.GetByIdAsync(itemId);
@@ -34,18 +34,18 @@ namespace Atrium12.Presenters.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<ItemDto>> Create(
+        public async Task<ActionResult<Guid>> Create(
             [FromBody] CreateItemDto request,
             CancellationToken cancellationToken)
         {
             var item = await _itemService.CreateAsync(request);
-            return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
+            return CreatedAtAction(nameof(GetById), item);
         }
 
 
         [HttpPut("{itemId:guid}")]
-        public async Task<ActionResult<ItemDto>> Update(
-            [FromRoute] Guid itemId,
+        public async Task<ActionResult<Contracts.DTOs.ItemDto>> Update(
+            [FromRoute] System.Guid itemId,
             [FromBody] UpdateItemDto request,
             CancellationToken cancellationToken)
         {
@@ -56,7 +56,7 @@ namespace Atrium12.Presenters.Controllers
 
         [HttpDelete("{itemId:guid}")]
         public async Task<IActionResult> Delete(
-            [FromRoute] Guid itemId,
+            [FromRoute] System.Guid itemId,
             CancellationToken cancellationToken)
         {
             var success = await _itemService.DeleteAsync(itemId);

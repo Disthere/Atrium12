@@ -1,10 +1,8 @@
-﻿
+﻿using Atrium12.Contracts.DTOs;
 
-using Atrium12.Contracts.DTOs;
-
-namespace Atrium12.Application
+namespace Atrium12.Application.Interfaces
 {
-    public interface ICollectionService
+    public interface ICollectionsService
     {
         Task<CollectionDto> CreateAsync(CreateCollectionDto dto);
 

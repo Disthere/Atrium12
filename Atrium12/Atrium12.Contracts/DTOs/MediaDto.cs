@@ -1,8 +1,8 @@
 ﻿namespace Atrium12.Contracts.DTOs
 {
     public record MediaDto(
-    Guid Id,
-    Guid ItemId,
+    System.Guid Id,
+    System.Guid ItemId,
     string Url,
     string? ThumbnailUrl,
     string Type,

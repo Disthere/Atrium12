@@ -14,10 +14,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Atrium12.Application\Atrium12.Application.csproj" />
-    <ProjectReference Include="..\..\Atrium12.Contracts\Atrium12.Contracts.csproj" />
-    <ProjectReference Include="..\Atrium12.Domain\Atrium12.Domain.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,4 @@
-﻿using Atrium12.Application;
+﻿using Atrium12.Application.Interfaces;
 using Atrium12.Contracts.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,9 +8,9 @@ namespace Atrium12.Presenters.Controllers
     [Route("api/v1/collections")]
     public class CollectionsController : ControllerBase
     {
-        private readonly ICollectionService _collectionService;
+        private readonly ICollectionsService _collectionService;
 
-        public CollectionsController(ICollectionService collectionService)
+        public CollectionsController(ICollectionsService collectionService)
         {
             _collectionService = collectionService;
         }
