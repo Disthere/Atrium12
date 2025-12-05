@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atrium12.Web", "src\Atrium12.Web\Atrium12.Web.csproj", "{91578D04-12AE-48EB-84CA-90E5BFCAD4DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A239D54-8001-44B6-B5F2-4256A5D0953F} = {8A239D54-8001-44B6-B5F2-4256A5D0953F}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3A0ABF6A-DD72-464B-B651-0BDC120A72CE}"
 EndProject

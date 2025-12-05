@@ -27,7 +27,7 @@ namespace Atrium12.Collections.Application.Services
         {
             // проверка валидности
             var validationResult = _validator.Validate(dto);
-            if (validationResult.IsValid)
+            if (!validationResult.IsValid)
             {
                 throw new ValidationException(validationResult.Errors);
             }
@@ -35,7 +35,12 @@ namespace Atrium12.Collections.Application.Services
             // валидация бизнес-логики (если есть)
             // обращение в БД и проверка, что такое имя уже есть, например.
 
-            var existedName = _itemRepository.GetAllByCollectionIdAsync(dto.CollectionId, cancellationToken);
+            var existedItems = await _itemRepository.GetAllByCollectionIdAsync(dto.CollectionId, cancellationToken);
+
+            if (existedItems.Any(x => x.Name == dto.Name))
+            {
+                throw new ValidationException("Имя предмета существует в текущей коллекции");
+            }
 
             // создание сущности Item
             var itemId = Guid.NewGuid();

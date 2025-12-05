@@ -32,7 +32,7 @@ namespace Atrium12.Collections.Domain
         public Guid? CreatedByUserId { get; set; }
 
         // Navigation
-        public virtual User? CreatedByUser { get; set; }
+        //public virtual User? CreatedByUser { get; set; }
         public virtual ICollection<CollectionAlbum> CollectionAlbums { get; set; } = new List<CollectionAlbum>();
     }
 }
