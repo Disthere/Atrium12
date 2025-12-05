@@ -12,6 +12,6 @@ namespace Atrium12.Collections.Application.Interfaces
 
         Task<Item> GetByIdAsync(Guid itemId, CancellationToken cancellationToken);
 
-        Task<IEnumerable<Item>> GetAllByCollectionIdAsync(Guid user, CancellationToken cancellationToken);
+        Task<IEnumerable<Item>> GetAllByCollectionIdAsync(Guid collectionId, CancellationToken cancellationToken);
     }
 }

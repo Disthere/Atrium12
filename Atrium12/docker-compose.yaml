@@ -1,0 +1,81 @@
+services:
+  db_train:
+    container_name: db_train
+    ports: 
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=admin
+    image: postgres:18.1-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - zabbix-network  # Добавляем сеть
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - db_train
+    networks:
+      - zabbix-network  # Добавляем сеть
+
+      # docker network create zabbix-network
+
+  # zabbix-server:
+  #   image: zabbix/zabbix-server-pgsql:latest
+  #   container_name: zabbix-server
+  #   ports:
+  #     - "10051:10051"
+  #   environment:
+  #     DB_SERVER_HOST: db_train  # Явно указываем имя контейнера
+  #     DB_USER: admin
+  #     DB_PASSWORD: root
+  #     DB_PORT: 5432
+  #     DB_NAME: zabbix
+  #     ZABBIX_SERVER_NAME: zabbix-server
+  #     ZBX_START_PROXY_POLLERS: 0
+  #     ZBX_START_ICMP_PINGERS: 0
+  #   depends_on:
+  #     - db_train
+  #   volumes:
+  #     - zabbix-server-data:/var/lib/zabbix
+  #   networks:
+  #     - zabbix_network
+
+  # zabbix-web:
+  #   image: zabbix/zabbix-web-apache-pgsql:latest
+  #   container_name: zabbix-web
+  #   ports:
+  #     - "8080:80"
+  #   environment:
+  #     DB_SERVER_HOST: db_train  # Явно указываем имя контейнера
+  #     DB_USER: admin
+  #     DB_PASSWORD: root
+  #     DB_PORT: 5432
+  #     DB_NAME: zabbix
+  #     ZBX_SERVER_HOST: zabbix-server
+  #     ZBX_SERVER_NAME: zabbix-server
+  #   depends_on:
+  #     - db_train
+  #     - zabbix-server
+  #   volumes:
+  #     - zabbix-web-data:/var/lib/zabbix
+  #   networks:
+  #     - zabbix_network
+
+networks:
+  zabbix-network:
+    external: true  # Указываем, что сеть внешняя
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+  # zabbix-server-data:
+  # zabbix-web-data:

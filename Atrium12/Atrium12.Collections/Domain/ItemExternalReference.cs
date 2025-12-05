@@ -26,6 +26,6 @@ namespace Atrium12.Collections.Domain
         // Navigation
         public virtual Item Item { get; set; } = null!;
         public virtual ExternalSource? Source { get; set; }
-        public virtual User? VerifiedByUser { get; set; }
+        //public virtual User? VerifiedByUser { get; set; }
     }
 }
